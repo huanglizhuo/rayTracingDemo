@@ -1,0 +1,88 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CAMERA_H	./camera.h	/^#define CAMERA_H$/;"	d
+COLOR_H	./color.h	/^#define COLOR_H$/;"	d
+HITTABLE_H	./hittable.h	/^#define HITTABLE_H$/;"	d
+HITTABLE_LIST_H	./hittable_list.h	/^#define HITTABLE_LIST_H$/;"	d
+RAY_H	./ray.h	/^#define RAY_H$/;"	d
+RTWEEKEND_H	./rtweekend.h	/^#define RTWEEKEND_H$/;"	d
+SPHERE_H	./sphere.h	/^#define SPHERE_H$/;"	d
+VEC3_H	./vec3.h	/^#define VEC3_H$/;"	d
+add	./hittable_list.h	/^  void add(shared_ptr<hittable> object) { objects.push_back(object); }$/;"	f	class:hittable_list
+at	./ray.h	/^  point3 at(double t) const { return orig + t * dir; }$/;"	f	class:ray
+camera	./camera.h	/^  camera() {$/;"	f	class:camera
+camera	./camera.h	/^class camera {$/;"	c
+center	./sphere.h	/^  point3 center;$/;"	m	class:sphere
+clamp	./rtweekend.h	/^inline double clamp(double x, double min, double max) {$/;"	f
+clear	./hittable_list.h	/^  void clear() { objects.clear(); }$/;"	f	class:hittable_list
+cross	./vec3.h	/^inline vec3 cross(const vec3 &u, const vec3 &v) {$/;"	f
+degrees_to_radians	./rtweekend.h	/^inline double degrees_to_radians(double degrees) {$/;"	f
+dir	./ray.h	/^  vec3 dir;$/;"	m	class:ray
+direction	./ray.h	/^  vec3 direction() const { return dir; }$/;"	f	class:ray
+dot	./vec3.h	/^inline double dot(const vec3 &u, const vec3 &v) {$/;"	f
+e	./vec3.h	/^  double e[3];$/;"	m	class:vec3
+front_face	./hittable.h	/^  bool front_face;$/;"	m	struct:hit_record
+get_ray	./camera.h	/^  ray get_ray(double u, double v) const {$/;"	f	class:camera
+hit	./hittable_list.h	/^bool hittable_list::hit(const ray &r, double tmin, double tmax,$/;"	f	class:hittable_list
+hit	./sphere.h	/^bool sphere::hit(const ray &r, double tmin, double tmax,$/;"	f	class:sphere
+hit_record	./hittable.h	/^struct hit_record {$/;"	s
+hittable	./hittable.h	/^class hittable {$/;"	c
+hittable_list	./hittable_list.h	/^  hittable_list() {}$/;"	f	class:hittable_list
+hittable_list	./hittable_list.h	/^  hittable_list(shared_ptr<hittable> object) { add(object); }$/;"	f	class:hittable_list
+hittable_list	./hittable_list.h	/^class hittable_list : public hittable {$/;"	c
+horizontal	./camera.h	/^  vec3 horizontal;$/;"	m	class:camera
+infinity	./rtweekend.h	/^const double infinity = std::numeric_limits<double>::infinity();$/;"	v
+length	./vec3.h	/^  double length() const { return sqrt(length_squared()); }$/;"	f	class:vec3
+length_squared	./vec3.h	/^  double length_squared() const {$/;"	f	class:vec3
+lower_left_corner	./camera.h	/^  point3 lower_left_corner;$/;"	m	class:camera
+main	./main.cpp	/^int main() {$/;"	f
+normal	./hittable.h	/^  vec3 normal;$/;"	m	struct:hit_record
+objects	./hittable_list.h	/^  std::vector<shared_ptr<hittable>> objects;$/;"	m	class:hittable_list
+operator *	./vec3.h	/^inline vec3 operator*(const vec3 &u, const vec3 &v) {$/;"	f
+operator *	./vec3.h	/^inline vec3 operator*(const vec3 &v, double t) { return t * v; }$/;"	f
+operator *	./vec3.h	/^inline vec3 operator*(double t, const vec3 &v) {$/;"	f
+operator *=	./vec3.h	/^  vec3 &operator*=(const double t) {$/;"	f	class:vec3
+operator +	./vec3.h	/^inline vec3 operator+(const vec3 &u, const vec3 &v) {$/;"	f
+operator +=	./vec3.h	/^  vec3 &operator+=(const vec3 &v) {$/;"	f	class:vec3
+operator -	./vec3.h	/^  vec3 operator-() const { return vec3(-e[0], -e[1], -e[2]); }$/;"	f	class:vec3
+operator -	./vec3.h	/^inline vec3 operator-(const vec3 &u, const vec3 &v) {$/;"	f
+operator /	./vec3.h	/^inline vec3 operator\/(vec3 v, double t) { return (1 \/ t) * v; }$/;"	f
+operator /=	./vec3.h	/^  vec3 &operator\/=(const double t) { return *this *= 1 \/ t; }$/;"	f	class:vec3
+operator <<	./vec3.h	/^inline std::ostream &operator<<(std::ostream &out, const vec3 &v) {$/;"	f
+operator []	./vec3.h	/^  double &operator[](int i) { return e[i]; }$/;"	f	class:vec3
+operator []	./vec3.h	/^  double operator[](int i) const { return e[i]; }$/;"	f	class:vec3
+orig	./ray.h	/^  point3 orig;$/;"	m	class:ray
+origin	./camera.h	/^  point3 origin;$/;"	m	class:camera
+origin	./ray.h	/^  point3 origin() const { return orig; }$/;"	f	class:ray
+override	./hittable_list.h	/^                   hit_record &rec) const override;$/;"	m	class:hittable_list
+override	./sphere.h	/^                   hit_record &rec) const override;$/;"	m	class:sphere
+p	./hittable.h	/^  point3 p;$/;"	m	struct:hit_record
+pi	./rtweekend.h	/^const double pi = 3.1415926535897932385;$/;"	v
+radius	./sphere.h	/^  double radius;$/;"	m	class:sphere
+random	./vec3.h	/^  inline static vec3 random() {$/;"	f	class:vec3
+random	./vec3.h	/^  inline static vec3 random(double min, double max) {$/;"	f	class:vec3
+random_double	./rtweekend.h	/^inline double random_double() {$/;"	f
+random_double	./rtweekend.h	/^inline double random_double(double min, double max) {$/;"	f
+random_in_unit_sphere	./vec3.h	/^vec3 random_in_unit_sphere() {$/;"	f
+ray	./ray.h	/^  ray() {}$/;"	f	class:ray
+ray	./ray.h	/^  ray(const point3 &origin, const vec3 &direction)$/;"	f	class:ray
+ray	./ray.h	/^class ray {$/;"	c
+ray_color	./main.cpp	/^color ray_color(const ray &r, const hittable &world) {$/;"	f
+set_face_normal	./hittable.h	/^  inline void set_face_normal(const ray &r, const vec3 &outward_normal) {$/;"	f	struct:hit_record
+sphere	./sphere.h	/^  sphere() {}$/;"	f	class:sphere
+sphere	./sphere.h	/^  sphere(point3 cen, double r) : center(cen), radius(r){};$/;"	f	class:sphere
+sphere	./sphere.h	/^class sphere : public hittable {$/;"	c
+t	./hittable.h	/^  double t;$/;"	m	struct:hit_record
+unit_vector	./vec3.h	/^inline vec3 unit_vector(vec3 v) { return v \/ v.length(); }$/;"	f
+vec3	./vec3.h	/^  vec3() : e{0, 0, 0} {}$/;"	f	class:vec3
+vec3	./vec3.h	/^  vec3(double e0, double e1, double e2) : e{e0, e1, e2} {}$/;"	f	class:vec3
+vec3	./vec3.h	/^class vec3 {$/;"	c
+vertical	./camera.h	/^  vec3 vertical;$/;"	m	class:camera
+write_color	./color.h	/^void write_color(std::ostream &out, color pixel_color, int samples_per_pixel) {$/;"	f
+x	./vec3.h	/^  double x() const { return e[0]; }$/;"	f	class:vec3
+y	./vec3.h	/^  double y() const { return e[1]; }$/;"	f	class:vec3
+z	./vec3.h	/^  double z() const { return e[2]; }$/;"	f	class:vec3
