@@ -8,25 +8,31 @@ CAMERA_H	./camera.h	/^#define CAMERA_H$/;"	d
 COLOR_H	./color.h	/^#define COLOR_H$/;"	d
 HITTABLE_H	./hittable.h	/^#define HITTABLE_H$/;"	d
 HITTABLE_LIST_H	./hittable_list.h	/^#define HITTABLE_LIST_H$/;"	d
+MATERIAL_H	./material.h	/^#define MATERIAL_H$/;"	d
 RAY_H	./ray.h	/^#define RAY_H$/;"	d
 RTWEEKEND_H	./rtweekend.h	/^#define RTWEEKEND_H$/;"	d
 SPHERE_H	./sphere.h	/^#define SPHERE_H$/;"	d
 VEC3_H	./vec3.h	/^#define VEC3_H$/;"	d
 add	./hittable_list.h	/^  void add(shared_ptr<hittable> object) { objects.push_back(object); }$/;"	f	class:hittable_list
+albedo	./material.h	/^  color albedo;$/;"	m	class:lambertian
+albedo	./material.h	/^  color albedo;$/;"	m	class:metal
 at	./ray.h	/^  point3 at(double t) const { return orig + t * dir; }$/;"	f	class:ray
-camera	./camera.h	/^  camera() {$/;"	f	class:camera
+camera	./camera.h	/^  camera(point3 lookfrom, point3 lookat, vec3 vup, double vfov,$/;"	f	class:camera
 camera	./camera.h	/^class camera {$/;"	c
 center	./sphere.h	/^  point3 center;$/;"	m	class:sphere
 clamp	./rtweekend.h	/^inline double clamp(double x, double min, double max) {$/;"	f
 clear	./hittable_list.h	/^  void clear() { objects.clear(); }$/;"	f	class:hittable_list
 cross	./vec3.h	/^inline vec3 cross(const vec3 &u, const vec3 &v) {$/;"	f
 degrees_to_radians	./rtweekend.h	/^inline double degrees_to_radians(double degrees) {$/;"	f
+dielectric	./material.h	/^  dielectric(double index_of_refraction) : ir(index_of_refraction) {}$/;"	f	class:dielectric
+dielectric	./material.h	/^class dielectric : public material {$/;"	c
 dir	./ray.h	/^  vec3 dir;$/;"	m	class:ray
 direction	./ray.h	/^  vec3 direction() const { return dir; }$/;"	f	class:ray
 dot	./vec3.h	/^inline double dot(const vec3 &u, const vec3 &v) {$/;"	f
 e	./vec3.h	/^  double e[3];$/;"	m	class:vec3
 front_face	./hittable.h	/^  bool front_face;$/;"	m	struct:hit_record
-get_ray	./camera.h	/^  ray get_ray(double u, double v) const {$/;"	f	class:camera
+fuzz	./material.h	/^  double fuzz;$/;"	m	class:metal
+get_ray	./camera.h	/^  ray get_ray(double s, double t) const {$/;"	f	class:camera
 hit	./hittable_list.h	/^bool hittable_list::hit(const ray &r, double tmin, double tmax,$/;"	f	class:hittable_list
 hit	./sphere.h	/^bool sphere::hit(const ray &r, double tmin, double tmax,$/;"	f	class:sphere
 hit_record	./hittable.h	/^struct hit_record {$/;"	s
@@ -36,10 +42,18 @@ hittable_list	./hittable_list.h	/^  hittable_list(shared_ptr<hittable> object) {
 hittable_list	./hittable_list.h	/^class hittable_list : public hittable {$/;"	c
 horizontal	./camera.h	/^  vec3 horizontal;$/;"	m	class:camera
 infinity	./rtweekend.h	/^const double infinity = std::numeric_limits<double>::infinity();$/;"	v
+ir	./material.h	/^  double ir;$/;"	m	class:dielectric
+lambertian	./material.h	/^  lambertian(const color &a) : albedo(a) {}$/;"	f	class:lambertian
+lambertian	./material.h	/^class lambertian : public material {$/;"	c
 length	./vec3.h	/^  double length() const { return sqrt(length_squared()); }$/;"	f	class:vec3
 length_squared	./vec3.h	/^  double length_squared() const {$/;"	f	class:vec3
 lower_left_corner	./camera.h	/^  point3 lower_left_corner;$/;"	m	class:camera
 main	./main.cpp	/^int main() {$/;"	f
+mat_ptr	./hittable.h	/^  shared_ptr<material> mat_ptr;$/;"	m	struct:hit_record
+mat_ptr	./sphere.h	/^  shared_ptr<material> mat_ptr;$/;"	m	class:sphere
+material	./material.h	/^class material {$/;"	c
+metal	./material.h	/^  metal(const color &a, double f) : albedo(a), fuzz(f < 1 ? f : 1) {}$/;"	f	class:metal
+metal	./material.h	/^class metal : public material {$/;"	c
 normal	./hittable.h	/^  vec3 normal;$/;"	m	struct:hit_record
 objects	./hittable_list.h	/^  std::vector<shared_ptr<hittable>> objects;$/;"	m	class:hittable_list
 operator *	./vec3.h	/^inline vec3 operator*(const vec3 &u, const vec3 &v) {$/;"	f
@@ -67,14 +81,20 @@ random	./vec3.h	/^  inline static vec3 random() {$/;"	f	class:vec3
 random	./vec3.h	/^  inline static vec3 random(double min, double max) {$/;"	f	class:vec3
 random_double	./rtweekend.h	/^inline double random_double() {$/;"	f
 random_double	./rtweekend.h	/^inline double random_double(double min, double max) {$/;"	f
+random_in_hemisphere	./vec3.h	/^vec3 random_in_hemisphere(const vec3 &normal) {$/;"	f
+random_in_unit_disk	./vec3.h	/^vec3 random_in_unit_disk() {$/;"	f
 random_in_unit_sphere	./vec3.h	/^vec3 random_in_unit_sphere() {$/;"	f
+random_unit_vector	./vec3.h	/^vec3 random_unit_vector() {$/;"	f
 ray	./ray.h	/^  ray() {}$/;"	f	class:ray
 ray	./ray.h	/^  ray(const point3 &origin, const vec3 &direction)$/;"	f	class:ray
 ray	./ray.h	/^class ray {$/;"	c
-ray_color	./main.cpp	/^color ray_color(const ray &r, const hittable &world) {$/;"	f
+ray_color	./main.cpp	/^color ray_color(const ray &r, const hittable &world, int depth) {$/;"	f
+reflect	./vec3.h	/^vec3 reflect(const vec3 &v, const vec3 &n) { return v - 2 * dot(v, n) * n; }$/;"	f
+reflectance	./material.h	/^  static double reflectance(double cosine, double ref_idx) {$/;"	f	class:dielectric
+refract	./vec3.h	/^vec3 refract(const vec3 &uv, const vec3 &n, double etai_over_etat) {$/;"	f
 set_face_normal	./hittable.h	/^  inline void set_face_normal(const ray &r, const vec3 &outward_normal) {$/;"	f	struct:hit_record
 sphere	./sphere.h	/^  sphere() {}$/;"	f	class:sphere
-sphere	./sphere.h	/^  sphere(point3 cen, double r) : center(cen), radius(r){};$/;"	f	class:sphere
+sphere	./sphere.h	/^  sphere(point3 cen, double r, shared_ptr<material> m)$/;"	f	class:sphere
 sphere	./sphere.h	/^class sphere : public hittable {$/;"	c
 t	./hittable.h	/^  double t;$/;"	m	struct:hit_record
 unit_vector	./vec3.h	/^inline vec3 unit_vector(vec3 v) { return v \/ v.length(); }$/;"	f
